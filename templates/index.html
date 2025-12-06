@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ .title }}</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <img src="/assets/img/logo.png" alt="logo" id="logo" />
+    <h1>{{ .title }}</h1>
+  </header>
+
+  <main>
+    <section id="status">
+      <h2>Server status</h2>
+      <div id="pingResult">Checking...</div>
+    </section>
+
+    <section id="content">
+      <h2>Interactive area</h2>
+      <button id="helloBtn">Say Hello</button>
+      <div id="helloOutput"></div>
+    </section>
+
+    <section id="content">
+      <h2>Descargador interrumpible 51010 loja bolsa</h2>
+      <img src="/assets/img/descargador.webp" id="imagenesProducto" alt="Descargador Interrumpible" id="descargadorImg" />
+      <div id="helloOutput"></div>
+    </section>
+
+    <section id="content">
+      <h2>tub flexible fontaneria</h2>
+      <img src="/assets/img/tubflexible.png" id="imagenesProducto" alt="Descargador Interrumpible" id="descargadorImg" />
+      <div id="helloOutput"></div>
+    </section>
+  </main>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>
