@@ -22,6 +22,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "fs": "^0.0.1-security",
     "yaml": "^2.8.2"
   }
 }

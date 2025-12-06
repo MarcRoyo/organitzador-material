@@ -1,4 +1,4 @@
-import { promises as fsp } from "fs";
+//import { promises as fsp } from "fs";
 import { parse as yamlParse } from "yaml";
 
 interface APIsConfig {
@@ -12,9 +12,26 @@ interface API {
 }
 
 let apisConfigContent: string;
-apisConfigContent = fsp.readFile("apis-config.yml", {
-      encoding: "utf8",
-    });
+//apisConfigContent = fsp.readFile("apis-config.yml", {
+  //    encoding: "utf8",
+   // });
+
+apisConfigContent = `# apis-config.yml
+apis:
+  - name: API_1
+    url: "api1.example.com"
+    proxies:
+      - "proxy-a.com"
+      - "proxy-b.com"
+  
+  - name: API_2
+    url: "api2.example.com"
+    proxies:
+      - "proxy-c.com"
+      - "proxy-d.com"
+      - "proxy-e.com"
+  - ...
+`;
 const config = yamlParse(apisConfigContent) as APIsConfig;
 
 function greet(name: string): string {

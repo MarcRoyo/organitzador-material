@@ -1,16 +1,45 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//import { promises as fsp } from "fs";
+const yaml_1 = require("yaml");
+let apisConfigContent;
+//apisConfigContent = fsp.readFile("apis-config.yml", {
+//    encoding: "utf8",
+// });
+apisConfigContent = `# apis-config.yml
+apis:
+  - name: API_1
+    url: "api1.example.com"
+    proxies:
+      - "proxy-a.com"
+      - "proxy-b.com"
+  
+  - name: API_2
+    url: "api2.example.com"
+    proxies:
+      - "proxy-c.com"
+      - "proxy-d.com"
+      - "proxy-e.com"
+  - ...
+`;
+const config = (0, yaml_1.parse)(apisConfigContent);
+function greet(name) {
+    return `${JSON.stringify(config, null, 2)}`;
+}
 document.addEventListener('DOMContentLoaded', function () {
-    var pingEl = document.getElementById('pingResult');
+    const pingEl = document.getElementById('pingResult');
     fetch('/ping')
-        .then(function (r) { return r.json(); })
-        .then(function (j) {
+        .then(r => r.json())
+        .then(j => {
         pingEl.textContent = 'Ping response: ' + (j.message || JSON.stringify(j));
     })
-        .catch(function (e) {
+        .catch(e => {
         pingEl.textContent = 'Ping failed: ' + e;
     });
-    var helloBtn = document.getElementById('helloBtn');
-    var helloOutput = document.getElementById('helloOutput');
-    helloBtn.addEventListener('click', function () {
+    const helloBtn = document.getElementById('helloBtn');
+    const helloOutput = document.getElementById('helloOutput');
+    helloBtn.addEventListener('click', () => {
         helloOutput.textContent = 'Hello from the static JS!';
+        console.log(greet('User'));
     });
 });
